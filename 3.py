@@ -18,4 +18,4 @@ def insert_at_position(head, value, pos):
 
     new_node.next = cur.next
     cur.next = new_node
-    return head
+    return head 
