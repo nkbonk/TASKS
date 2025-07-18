@@ -1,6 +1,7 @@
+# GPT написал
 class LinkedListNode:
     def __init__(self, value):
-        self.val = value
+        self.value = value
         self.next = None
 
 def reverse_list(head):
