@@ -1,19 +1,27 @@
-class LinkedListNode:
-    self.value = value
-    self.next = None
-    
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+        """
+        :type head: Optional[ListNode]
+        :type n: int
+        :rtype: Optional[ListNode]
+        """
+        
+        cur = ListNode(0)
+        cur.next = head
+        fast = cur
+        slow = cur
 
-    
-    
-class LinkedList:
-    def __init__(self):
-        self.head = None
-    
-    def append(self, value):
-        new_node = LinkedListNode(value)
-        if self.head is None:
-            self.head = new_node
-        current = self.head
-        while current.next:
-            current = current.next
+        for _ in range(n):
+            fast = fast.next
+        while fast.next:
+            fast = fast.next
+            slow = slow.next
+        
+        slow.next = slow.next.next
+        return cur.next  
