@@ -1,16 +1,5 @@
-# GPT написал
-class LinkedListNode:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-def reverse_list(head):
+def reverseList(head):
     prev = None
-    cur = head
-
-    while cur:
-        nxt = cur.next
-        cur.next = prev
-        prev = cur
-        cur = nxt
+    while head:
+        head.next, prev, head = prev, head, head.next
     return prev
