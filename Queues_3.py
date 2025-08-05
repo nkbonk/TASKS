@@ -10,19 +10,23 @@
 
 
 class LemonadeQueue:
-    def __init__(self):
-        self.q = []
+def __init__(self):
+        self.queue = [] 
+        self.head = 0 
 
-    def buy(self, n):
-        self.q.append(n)
+    def arrive(self, n):
+        self.queue.append(n)
 
-    def serve(self):
-        if not self.q:
+    def process(self):
+        if self.head >= len(self.queue):
             return False
-        self.q[0] -= 1
-        if self.q[0] == 0:
-            self.q.pop(0)
+        
+        self.queue[self.head] -= 1
+        
+        if self.queue[self.head] == 0:
+            self.head += 1 
+        
         return True
 
-    def status(self):
-        return self.q[:]
+    def queue_state(self):
+        return self.queue[self.head:]
