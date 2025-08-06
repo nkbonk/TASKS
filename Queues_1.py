@@ -9,14 +9,14 @@
 class MyQueue:
     def __init__(self):
         self.q = []
-        self.head = 0
 
     def enqueue(self, x):
         self.q.append(x)
 
     def dequeue(self):
-        if self.head >= len(self.q):
+        if not self.q:
             return None
-        val = self.q[self.head]
-        self.head += 1
+            
+        val = self.q[0]
+        self.q = self.q[1:]
         return val
