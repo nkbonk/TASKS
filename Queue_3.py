@@ -3,30 +3,31 @@
 # В супермаркете работает самодельная система управления очередью к кассе. Каждый покупатель имеет корзину с товарами. 
 # Когда покупатель приходит, он добавляется в очередь через команду arrive(n), где n — количество товаров в его корзине. 
 
-# Система обрабатывает очередь по принципу FIFO. Существует команда process() — она обслуживает первого покупателя в очереди: если у него осталось больше одного товара, 
-# то система уменьшает количество товаров на один и он остаётся в очереди; если остался один товар, то после обслуживания он уходит из очереди. 
+# Существует команда process() — она обслуживает первого покупателя в очереди: если у него осталось больше одного товара, то система уменьшает количество товаров на один и он остаётся в очереди; если остался один товар, то после обслуживания он уходит из очереди. 
 # Нужно реализовать класс CheckoutQueue, поддерживающий команды arrive(n), process() и queue_state(), возвращающий список текущего количества товаров у каждого покупателя в очереди. 
 
 # Если очередь пуста и вызвана команда process(), метод должен вернуть False, иначе True.
 
 
-class LemonadeQueue:
-def __init__(self):
-        self.queue = [] 
-        self.head = 0 
-
+class CheckoutQueue:
+    def __init__(self):
+        self.queue = []
+        self.current = 0
+    
     def arrive(self, n):
         self.queue.append(n)
-
-    def process(self):
-        if self.head >= len(self.queue):
+    
+    def process(self): 
+        if self.current >= len(self.queue):
             return False
+            
+        self.queue[self.current] -= 1        
+        if self.queue[self.current] == 0:
+            self.current += 1
         
-        self.queue[self.head] -= 1
-        
-        if self.queue[self.head] == 0:
-            self.head += 1  
         return True
-
+    
     def queue_state(self):
-        return self.queue[self.head:]
+        # Сложность: O(n)
+        # Неизбежно, так как нужно создать новый список
+        return self.queue[self.current:]
