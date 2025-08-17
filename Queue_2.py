@@ -8,9 +8,12 @@
 def total_wait_time(queue):
     total_time = 0
     current_time = 0
-
-    for t in queue:
-        current_time += t
-        total_time += current_time
-
+    
+    for arrival, work in queue:
+        if arrival <= current_time:
+            total_time += current_time - arrival
+            current_time += work
+        else:
+            current_time = arrival + work
+    
     return total_time
