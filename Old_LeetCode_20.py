@@ -1,7 +1,7 @@
 class Solution:
+    # O(1)
     def isValid(self, s: str) -> bool:
         stack = []
-
         for symbol in s:                    
             if symbol in '([{':             
                 stack.append(symbol)        
