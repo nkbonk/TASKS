@@ -1,18 +1,28 @@
 class MyStack:
     def __init__(self):
-        self.queue = []
+        self.queue1 = []
+        self.queue2 = []
     
+    # O(n)
     def push(self, x):
-        self.queue.append(x)
+        self.queue2.append(x)
+        while self.queue1:
+            self.queue2.append(self.queue1[0])
+            self.queue1 = self.queue1[1:]
+        self.queue1, self.queue2 = self.queue2, self.queue1
 
-        for _ in range(len(self.queue)-1):
-            self.queue.append(self.queue.pop(0))  # Допустимый урон
-    
+    # O(1)
     def pop(self):
-        return self.queue.pop(0) if self.queue else None  # Тоже допустимый урон с pop(0), не критично
-    
+        if not self.queue1:
+            return -1
+        result = self.queue1[0]
+        self.queue1 = self.queue1[1:]
+        return result
+
+    # O(1)
     def top(self):
-        return self.queue[0] if self.queue else None
-    
+        return self.queue1[0] if self.queue1 else -1
+
+    # O(1)
     def empty(self):
-        return len(self.queue) == 0
+        return len(self.queue1) == 0
