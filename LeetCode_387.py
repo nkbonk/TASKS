@@ -1,4 +1,5 @@
 class Solution(object):
+    # O(1)
     def firstUniqChar(self, s):  # Это литкодное, я так не пишу
         count = {}
         for char in s:
