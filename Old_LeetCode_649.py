@@ -3,7 +3,6 @@ class Solution:
         radiant = []
         dire = []
         n = len(senate)
-        
         for i in range(n):
             if senate[i] == 'R':
                 radiant.append(i)
@@ -15,7 +14,6 @@ class Solution:
         while r_inx < len(radiant) and d_inx < len(dire):
             r = radiant[r_inx]
             d = dire[d_inx]
-            
             if r < d:
                 radiant.append(r + n)
             else:
