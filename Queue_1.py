@@ -16,7 +16,8 @@ class Queue:
         self.tail = None
         self.size = 0
         assert self.head is None and self.tail is None and self.size == 0
-
+    
+    # Сложность O(1) 
     def enqueue(self, i):
         new_node = QueueNode(i)
         assert new_node.value == i
@@ -37,6 +38,7 @@ class Queue:
         # assert self.tail.next is None
         # assert self.size > 0
 
+    # Сложность O(1)
     def dequeue(self):
         if not self.head:
             assert self.tail is None
@@ -49,6 +51,7 @@ class Queue:
         if not self.head:
             self.tail = None
 
+    # Сложность O(n)
     def check_integrity(self):
         if self.size == 0:
             assert self.head is None
