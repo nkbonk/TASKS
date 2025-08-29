@@ -2,26 +2,22 @@
 https://leetcode.com/problems/evaluate-reverse-polish-notation/
 '''
 class Solution:
-    #  Все O(n), меньше никак
     def evalRPN(self, tokens):
         stack = []
-        ops = {"+", "-", "*", "/"}
-
         for t in tokens:
-            if t not in ops:
+            if t == '+' or t == '-' or t == '*' or t == '/':
+                b = stack.pop()
+                a = stack.pop()
+                if t == '+':
+                    stack.append(a + b)
+                elif t == '-':
+                    stack.append(a - b)
+                elif t == '*':
+                    stack.append(a * b)
+                else:
+                    #  ГПТ подсказал, что нужно сюда флоат вставить, тогда заработает.
+                    #  Я забил в хабитику проверить это завтра, потому что сейчас оперативки в голове не хватает, чтобы все это обработать    :3
+                    stack.append(int(float(a) / b))
+            else:
                 stack.append(int(t))
-                continue
-
-            b = stack.pop()
-            a = stack.pop()
-
-            if t == "+":
-                stack.append(a + b)
-            elif t == "-":
-                stack.append(a - b)
-            elif t == "*":
-                stack.append(a * b)
-            else:  
-                stack.append(int(a / b))
-
         return stack[-1]
