@@ -1,5 +1,8 @@
+'''
+https://leetcode.com/problems/min-stack/description/
+'''
 class MinStack:
-    #  Все действия: O(1)
+    #  Все действия: O(1), Space O(n)
     def __init__(self):
         self.stack = []
 
