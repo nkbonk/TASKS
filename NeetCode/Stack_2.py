@@ -1,5 +1,5 @@
 '''
-https://neetcode.io/problems/minimum-stack?list=neetcode150
+https://leetcode.com/problems/min-stack/description/
 '''
 class MinStack:
     #  Все действия: O(1)
