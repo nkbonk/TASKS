@@ -1,8 +1,8 @@
 from collections import deque
-# Без этой либы не получится сделать O(1)
-# Все функции в коде на O(1)
+# Без этой либы не получится сделать меньше O(n)
 
 class MyStack:
+    # Все функции в коде на O(1)
     def __init__(self):
         self.q1 = deque()
         self.q2 = deque() 
