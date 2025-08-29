@@ -1,6 +1,3 @@
-'''
-https://neetcode.io/problems/validate-parentheses?list=neetcode150
-'''
 class Solution:
     #  O(n)
     def isValid(self, s: str) -> bool:
