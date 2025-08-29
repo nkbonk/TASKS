@@ -2,7 +2,7 @@
 https://leetcode.com/problems/evaluate-reverse-polish-notation/
 '''
 class Solution:
-    #  O(n)
+    #  Все O(n), меньше никак
     def evalRPN(self, tokens):
         stack = []
         ops = {"+", "-", "*", "/"}
