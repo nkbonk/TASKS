@@ -1,6 +1,6 @@
 from collections import deque
 # Без этой либы не получится сделать O(1)
-# Все функции в коде 
+# Все функции в коде на O(1)
 
 class MyStack:
     def __init__(self):
