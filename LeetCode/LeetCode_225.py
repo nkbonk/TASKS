@@ -1,21 +1,24 @@
+from collections import deque
+# Без этой либы не получится сделать O(1)
+# Все функции в коде 
+
 class MyStack:
     def __init__(self):
-        self.q = [] 
+        self.q1 = deque()
+        self.q2 = deque() 
 
     def push(self, x: int) -> None:
-        self.q.append(x)
-        #  O(n)
-        for _ in range(len(self.q) - 1):
-            self.q.append(self.q.pop(0)) 
+        self.q2.append(x)
+        
+        while self.q1:
+            self.q2.append(self.q1.popleft())
+        self.q1, self.q2 = self.q2, self.q1
 
-    #  pop(0) — O(n)
     def pop(self) -> int:
-        return self.q.pop(0)
-    
-    #  O(1)
+        return self.q1.popleft()
+
     def top(self) -> int:
-        return self.q[0]
-    
-    #  O(1)
+        return self.q1[0]
+
     def empty(self) -> bool:
-        return len(self.q) == 0
+        return not self.q1
