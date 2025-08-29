@@ -1,20 +1,21 @@
 '''
 https://leetcode.com/problems/min-stack/description/
 '''
+#  Time: O(1)
+#  Space: O(n)
 class MinStack:
-    #  Все действия: O(1), Space O(n)
     def __init__(self):
         self.stack = []
 
-    def push(self, value: int) -> None:
-        current_min = value if not self.stack else min(value, self.stack[-1][1])
-        self.stack.append((value, current_min))
+    def push(self, val):
+        cur_min = val if not self.stack else min(val, self.stack[-1][1])
+        self.stack.append((val, cur_min))
 
-    def pop(self) -> None:
+    def pop(self):
         self.stack.pop()
 
-    def top(self) -> int:
+    def top(self):
         return self.stack[-1][0]
 
-    def getMin(self) -> int:
+    def getMin(self):
         return self.stack[-1][1]
