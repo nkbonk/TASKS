@@ -2,6 +2,7 @@
 https://leetcode.com/problems/evaluate-reverse-polish-notation/
 '''
 class Solution:
+    #  Time/Space: O(n), один проход в любом случае будет
     def evalRPN(self, tokens):
         stack = []
         for t in tokens:
