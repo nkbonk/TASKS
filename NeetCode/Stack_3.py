@@ -1,5 +1,5 @@
 '''
-https://neetcode.io/problems/evaluate-reverse-polish-notation?list=neetcode150
+https://leetcode.com/problems/evaluate-reverse-polish-notation/
 '''
 class Solution:
     #  O(n)
