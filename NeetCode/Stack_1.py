@@ -2,7 +2,7 @@
 https://leetcode.com/problems/valid-parentheses/
 '''
 class Solution:
-    #  O(n), тут много скобок надо проверять, поэтому меньше не выйдет
+    #  все в сумме O(n), тут много скобок надо проверять, поэтому меньше не выйдет
     def isValid(self, s: str) -> bool:
         if len(s) % 2 == 1:
             return False
