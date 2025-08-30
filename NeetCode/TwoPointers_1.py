@@ -1,7 +1,7 @@
 '''
 https://leetcode.com/problems/valid-palindrome/
 
-Comp.: O(n)
+Complexity: O(n)
 Space: O(1) 
 '''
 class Solution:
